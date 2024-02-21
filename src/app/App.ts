@@ -44,8 +44,8 @@ export class App {
 		this.pixiApp.ticker.add(() => this.update())
 
 		this.persistentScenes = {
-			throbber: new Throbber(this),
 			background: new Backgorund(this),
+			throbber: new Throbber(this),
 		}
 
 		this.transientSceneStage = new Container()
@@ -93,6 +93,7 @@ export class App {
 		this.persistentScenes.throbber.transitionIn()
 
 		await this.persistentScenes.background.load()
+		this.persistentScenes.background.transitionIn()
 	}
 
 	private update() {
