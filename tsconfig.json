@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"strict": true,
+		"noImplicitReturns": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"declaration": true,
+		"target": "es2015",
+		"lib": ["es2017", "dom"],
+		"outDir": "dist",
+		"rootDir": "./",
+		"baseUrl": ".",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"paths": {
+			"*": ["types/*"],
+			"@/*": ["src/*"]
+		}
+	},
+	"include": ["src/**/*", "types"],
+	"exclude": ["node_modules/*"]
+}
