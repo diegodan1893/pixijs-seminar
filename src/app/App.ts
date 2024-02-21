@@ -3,6 +3,9 @@ import { Scene } from "@/scenes/Scene"
 import { AssetManager } from "./AssetManager"
 import { Backgorund } from "@/scenes/Background"
 import { Throbber } from "@/scenes/Throbber"
+import { Slide } from "@/scenes/slides/Slide"
+import { getSlides } from "@/scenes/slides"
+import { loadFont } from "@/util/Fonts"
 
 interface ApplicationOptions {
 	canvasElementId: string
@@ -15,6 +18,7 @@ export class App {
 	private canvas: HTMLElement
 
 	private persistentScenes
+	private slides: Slide[]
 
 	private transientSceneStage: Container
 	private currentScene?: Scene
@@ -48,12 +52,13 @@ export class App {
 			throbber: new Throbber(this),
 		}
 
-		this.transientSceneStage = new Container()
-		this.pixiApp.stage.addChild(this.transientSceneStage)
+		this.slides = getSlides(this)
 
-		Object.values(this.persistentScenes).forEach((scene) =>
-			this.pixiApp.stage.addChild(scene)
-		)
+		this.transientSceneStage = new Container()
+
+		this.pixiApp.stage.addChild(this.persistentScenes.background)
+		this.pixiApp.stage.addChild(this.transientSceneStage)
+		this.pixiApp.stage.addChild(this.persistentScenes.throbber)
 
 		this._assetManager = new AssetManager()
 
@@ -94,6 +99,35 @@ export class App {
 
 		await this.persistentScenes.background.load()
 		this.persistentScenes.background.transitionIn()
+
+		await Promise.all([loadFont("Roboto"), loadFont("Inconsolata")])
+
+		await this.travelTo(this.slides[0])
+	}
+
+	async travelTo(scene: Scene) {
+		this.nextScene = scene
+
+		if (this.currentScene) {
+			await this.currentScene.transitionOut()
+		}
+
+		this.persistentScenes.throbber.transitionIn()
+
+		this.transientSceneStage.addChild(this.nextScene)
+		await this.nextScene.load()
+
+		await this.persistentScenes.throbber.transitionOut()
+
+		await this.nextScene.transitionIn()
+
+		if (this.currentScene) {
+			await this.currentScene.unload()
+			this.transientSceneStage.removeChild(this.currentScene)
+		}
+
+		this.currentScene = this.nextScene
+		this.nextScene = undefined
 	}
 
 	private update() {
