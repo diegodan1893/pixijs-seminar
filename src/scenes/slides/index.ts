@@ -1,6 +1,7 @@
 import { App } from "@/app/App"
 import { Title } from "./Title"
 import { TextSlide } from "./TextSlide"
+import { GettingStarted } from "./GettingStarted"
 
 export const getSlides = (app: App) => {
 	return [
@@ -20,5 +21,12 @@ export const getSlides = (app: App) => {
 			"Una librería para hacer interfaces de usuario",
 			"Un entorno de desarrollo, se necesitan herramientas externas para crear assets",
 		]),
+		new TextSlide(app, [
+			"Un paradigma diferente",
+			"La pantalla se dibuja varias veces por segundo",
+			"Cada fotograma, se actualiza y se pinta todo",
+			"Idealmente, los FPS coinciden con los Hz de la pantalla",
+		]),
+		new GettingStarted(app),
 	]
 }

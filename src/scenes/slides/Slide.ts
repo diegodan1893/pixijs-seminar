@@ -1,8 +1,9 @@
-import { Point, TextStyle } from "pixi.js"
+import { Point, TextStyle, Texture } from "pixi.js"
 import { Scene } from "../Scene"
 import { TextEntity } from "@/entities/TextEntity"
 import { sleep } from "@/util/Time"
 import { easeOutCubic } from "@/math/Easing"
+import { SpriteEntity } from "@/entities/SpriteEntity"
 
 export abstract class Slide extends Scene {
 	private titlePosition = new Point(100, 150)
@@ -57,6 +58,26 @@ export abstract class Slide extends Scene {
 		await sleep(this.slideWaitSeconds)
 
 		return line
+	}
+
+	protected async showCodeBlock(
+		texture: Texture,
+		hideOnClick: boolean = true
+	) {
+		const code = new SpriteEntity(texture)
+		code.sprite.anchor.y = 0.5
+		code.sprite.y = this.app.halfHeight
+		code.visible = false
+		this.addEntity(code)
+
+		await code.fade(1, this.defaultTransitionDurationSeconds)
+
+		if (hideOnClick) {
+			await this.app.waitForClick()
+			await code.fade(0, this.defaultTransitionDurationSeconds)
+		}
+
+		return code
 	}
 
 	private async runAndGoToNext() {

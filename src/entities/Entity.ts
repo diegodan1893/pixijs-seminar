@@ -12,6 +12,14 @@ export class Entity extends Container {
 		this.interpolators = new Set()
 	}
 
+	get halfWidth(): number {
+		return Math.round(this.width / 2)
+	}
+
+	get halfHeight(): number {
+		return Math.round(this.height / 2)
+	}
+
 	fade(
 		targetAlpha: number,
 		durationSeconds: number,
