@@ -60,24 +60,38 @@ export abstract class Slide extends Scene {
 		return line
 	}
 
-	protected async showCodeBlock(
+	protected showLeftAlignedImage(
 		texture: Texture,
 		hideOnClick: boolean = true
-	) {
-		const code = new SpriteEntity(texture)
-		code.sprite.anchor.y = 0.5
-		code.sprite.y = this.app.halfHeight
-		code.visible = false
-		this.addEntity(code)
+	): Promise<SpriteEntity> {
+		return this.showImage(
+			texture,
+			new Point(0, 0.5),
+			new Point(0, this.app.halfHeight),
+			hideOnClick
+		)
+	}
 
-		await code.fade(1, this.defaultTransitionDurationSeconds)
+	protected async showImage(
+		texture: Texture,
+		anchor: Point,
+		position: Point,
+		hideOnClick: boolean = true
+	): Promise<SpriteEntity> {
+		const sprite = new SpriteEntity(texture)
+		sprite.sprite.anchor.set(anchor.x, anchor.y)
+		sprite.position.set(position.x, position.y)
+		sprite.visible = false
+		this.addEntity(sprite)
+
+		await sprite.fade(1, this.defaultTransitionDurationSeconds)
 
 		if (hideOnClick) {
 			await this.app.waitForClick()
-			await code.fade(0, this.defaultTransitionDurationSeconds)
+			await sprite.fade(0, this.defaultTransitionDurationSeconds)
 		}
 
-		return code
+		return sprite
 	}
 
 	private async runAndGoToNext() {

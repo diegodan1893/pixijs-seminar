@@ -2,6 +2,7 @@ import { App } from "@/app/App"
 import { Title } from "./Title"
 import { TextSlide } from "./TextSlide"
 import { GettingStarted } from "./GettingStarted"
+import { Architecture } from "./Architecture"
 
 export const getSlides = (app: App) => {
 	return [
@@ -28,5 +29,6 @@ export const getSlides = (app: App) => {
 			"Idealmente, los FPS coinciden con los Hz de la pantalla",
 		]),
 		new GettingStarted(app),
+		new Architecture(app),
 	]
 }

@@ -59,16 +59,19 @@ export class GettingStarted extends Slide {
 		balloon.paused = true
 		balloon.x = this.app.width - 400
 
-		await this.showCodeBlock(this.assets.html)
-		await this.showCodeBlock(this.assets.createApp)
+		await this.showLeftAlignedImage(this.assets.html)
+		await this.showLeftAlignedImage(this.assets.createApp)
 
-		const addBallon = await this.showCodeBlock(this.assets.addBallon, false)
+		const addBallon = await this.showLeftAlignedImage(
+			this.assets.addBallon,
+			false
+		)
 		await balloon.fade(1, this.defaultTransitionDurationSeconds)
 		await this.app.waitForClick()
 
-		addBallon.fade(0, this.defaultTransitionDurationSeconds)
+		await addBallon.fade(0, this.defaultTransitionDurationSeconds)
 
-		await this.showCodeBlock(this.assets.addAnimation, false)
+		await this.showLeftAlignedImage(this.assets.addAnimation, false)
 		balloon.paused = false
 	}
 }
