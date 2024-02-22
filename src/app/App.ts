@@ -23,6 +23,7 @@ export class App {
 	private transientSceneStage: Container
 	private currentScene?: Scene
 	private nextScene?: Scene
+	private currentSlideIndex: number = 0
 
 	private _assetManager: AssetManager
 
@@ -56,6 +57,7 @@ export class App {
 
 		this.transientSceneStage = new Container()
 
+		this.pixiApp.stage.eventMode = "static"
 		this.pixiApp.stage.addChild(this.persistentScenes.background)
 		this.pixiApp.stage.addChild(this.transientSceneStage)
 		this.pixiApp.stage.addChild(this.persistentScenes.throbber)
@@ -102,7 +104,16 @@ export class App {
 
 		await Promise.all([loadFont("Roboto"), loadFont("Inconsolata")])
 
-		await this.travelTo(this.slides[0])
+		await this.travelTo(this.slides[this.currentSlideIndex])
+	}
+
+	nextSlide() {
+		++this.currentSlideIndex
+		const slide = this.slides[this.currentSlideIndex]
+
+		if (slide) {
+			this.travelTo(slide)
+		}
 	}
 
 	async travelTo(scene: Scene) {
@@ -128,6 +139,18 @@ export class App {
 
 		this.currentScene = this.nextScene
 		this.nextScene = undefined
+	}
+
+	waitForClick(): Promise<void> {
+		return new Promise((resolve) => {
+			const handleClick = () => {
+				this.pixiApp.stage.off("pointertap")
+
+				resolve()
+			}
+
+			this.pixiApp.stage.on("pointertap", handleClick)
+		})
 	}
 
 	private update() {

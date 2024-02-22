@@ -11,6 +11,11 @@ export class Title extends Slide {
 		}
 	}
 
+	async transitionIn(): Promise<void> {
+		await this.fade(1, this.defaultTransitionDurationSeconds)
+		await super.transitionIn()
+	}
+
 	protected async init(): Promise<void> {
 		const pixijsLogo = new Sprite(this.assets.pixijsLogo)
 		pixijsLogo.anchor.set(0.5)
