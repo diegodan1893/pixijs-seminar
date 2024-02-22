@@ -11,6 +11,6 @@ export abstract class Slide extends Scene {
 	private async runAndGoToNext() {
 		await this.start()
 		await this.app.waitForClick()
-		this.app.nextSlide()
+		++this.app.openSlideIndex
 	}
 }

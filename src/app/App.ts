@@ -6,6 +6,7 @@ import { Throbber } from "@/scenes/Throbber"
 import { Slide } from "@/scenes/slides/Slide"
 import { getSlides } from "@/scenes/slides"
 import { loadFont } from "@/util/Fonts"
+import { clamp } from "@/math/Operations"
 
 interface ApplicationOptions {
 	canvasElementId: string
@@ -19,13 +20,15 @@ export class App {
 
 	private persistentScenes
 	private slides: Slide[]
+	private _openSlideIndex: number = 0
 
 	private transientSceneStage: Container
 	private currentScene?: Scene
 	private nextScene?: Scene
-	private currentSlideIndex: number = 0
 
 	private _assetManager: AssetManager
+
+	private initialized: boolean = false
 
 	constructor(private options: ApplicationOptions) {
 		const element = document.getElementById(options.canvasElementId)
@@ -64,6 +67,12 @@ export class App {
 
 		this._assetManager = new AssetManager()
 
+		let urlSlideIndex = location.hash
+		if (urlSlideIndex) {
+			urlSlideIndex = urlSlideIndex.substring(1)
+		}
+		this.openSlideIndex = parseInt(urlSlideIndex) || 0
+
 		// HACK: doing this magically fixes a rendering issue on Samsung
 		// smartphones using Google Chrome. More info:
 		// https://github.com/pixijs/pixijs/issues/8315#issuecomment-1125973518
@@ -95,6 +104,25 @@ export class App {
 		return this._assetManager
 	}
 
+	get openSlideIndex(): number {
+		return this._openSlideIndex
+	}
+
+	set openSlideIndex(index: number) {
+		index = clamp(index, 0, this.slides.length - 1)
+
+		if (index === this.openSlideIndex) {
+			return
+		}
+
+		location.hash = index.toString()
+		this._openSlideIndex = index
+
+		if (this.initialized) {
+			this.travelTo(index)
+		}
+	}
+
 	async init() {
 		await this.persistentScenes.throbber.load()
 		this.persistentScenes.throbber.transitionIn()
@@ -104,19 +132,12 @@ export class App {
 
 		await Promise.all([loadFont("Roboto"), loadFont("Inconsolata")])
 
-		await this.travelTo(this.slides[this.currentSlideIndex])
+		this.initialized = true
+		this.travelTo(this.openSlideIndex)
 	}
 
-	nextSlide() {
-		++this.currentSlideIndex
-		const slide = this.slides[this.currentSlideIndex]
-
-		if (slide) {
-			this.travelTo(slide)
-		}
-	}
-
-	async travelTo(scene: Scene) {
+	async travelTo(slideIndex: number) {
+		const scene = this.slides[slideIndex]
 		this.nextScene = scene
 
 		if (this.currentScene) {
