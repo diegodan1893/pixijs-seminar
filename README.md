@@ -19,3 +19,9 @@ npm run build
 ```
 
 The output will be in the `./dist` directory.
+
+Deploy to GitHub Pages with
+
+```bash
+npm run deploy
+```

@@ -4,7 +4,9 @@
 	"description": "",
 	"scripts": {
 		"dev": "open-cli http://localhost:3000/ && webpack-cli serve --mode development --port 3000",
-		"build": "webpack --mode=production"
+		"build": "webpack --mode=production",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"keywords": [],
 	"author": "Diego Iáñez Ávila (https://github.com/diegodan1893)",
@@ -21,6 +23,7 @@
 		"css-loader": "^6.8.1",
 		"eslint": "^8.52.0",
 		"file-loader": "^6.2.0",
+		"gh-pages": "^6.1.1",
 		"html-webpack-plugin": "^5.5.3",
 		"open-cli": "^7.2.0",
 		"postcss-loader": "^7.3.3",
