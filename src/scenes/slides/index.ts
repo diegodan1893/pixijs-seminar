@@ -8,6 +8,14 @@ import { SpriteExample } from "./SpriteExample"
 import { SpritesheetExample } from "./SpritesheetExample"
 import { GraphicsExample } from "./GraphicsExample"
 import { MasksExample } from "./MasksExample"
+import { ShadersExample } from "./ShadersExample"
+import maracena from "@/assets/shaders/maracena.png"
+import leaves from "@/assets/shaders/leaves.png"
+import dog from "@/assets/shaders/dog.png"
+import blue from "@/assets/shaders/blue.png"
+import radial from "@/assets/shaders/radial.png"
+import swipe from "@/assets/shaders/swipe.png"
+import dogMask from "@/assets/shaders/dogMask.png"
 
 export const getSlides = (app: App) => {
 	return [
@@ -47,5 +55,9 @@ export const getSlides = (app: App) => {
 			"En el caso de las fuentes normales, usar FontFaceObserver",
 		]),
 		new MasksExample(app),
+		new TextSlide(app, ["Shaders"]),
+		new ShadersExample(app, maracena, leaves, swipe),
+		new ShadersExample(app, maracena, leaves, radial),
+		new ShadersExample(app, dog, blue, dogMask),
 	]
 }
