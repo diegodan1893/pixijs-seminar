@@ -16,6 +16,7 @@ import blue from "@/assets/shaders/blue.png"
 import radial from "@/assets/shaders/radial.png"
 import swipe from "@/assets/shaders/swipe.png"
 import dogMask from "@/assets/shaders/dogMask.png"
+import { AnimationsExample } from "./AnimationsExample"
 
 export const getSlides = (app: App) => {
 	return [
@@ -59,5 +60,15 @@ export const getSlides = (app: App) => {
 		new ShadersExample(app, maracena, leaves, swipe),
 		new ShadersExample(app, maracena, leaves, radial),
 		new ShadersExample(app, dog, blue, dogMask),
+		new AnimationsExample(app),
+		new TextSlide(app, [
+			"Algunas cosas malas",
+			"Google Chrome en Android es especial",
+			"Bug que solo afecta a Samsung Galaxy S22 y S23, ¿habrá más dispostivos con cosas raras?",
+			"Hay que llamar a mano al método destroy() de los Graphics",
+			"Los Asset Bundles no se pueden cambiar una vez definidos",
+			"Assets.loadBundle no cuenta referencias",
+		]),
+		new Title(app),
 	]
 }
