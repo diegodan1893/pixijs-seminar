@@ -1,0 +1,13 @@
+import { App } from "@/app/App";
+import { Title } from "./Title";
+import { TextSlide } from "./TextSlide";
+import { GettingStarted } from "./GettingStarted";
+import { Architecture } from "./Architecture";
+import { Tree } from "./Tree";
+import { SpriteExample } from "./SpriteExample";
+import { SpritesheetExample } from "./SpritesheetExample";
+import { GraphicsExample } from "./GraphicsExample";
+import { MasksExample } from "./MasksExample";
+import { ShadersExample } from "./ShadersExample";
+import { AnimationsExample } from "./AnimationsExample";
+export declare const getSlides: (app: App) => (Title | TextSlide | GettingStarted | Architecture | Tree | SpriteExample | SpritesheetExample | GraphicsExample | MasksExample | ShadersExample | AnimationsExample)[];
