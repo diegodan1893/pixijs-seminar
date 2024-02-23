@@ -1,0 +1,294 @@
+{
+	"frames": {
+		"IMG_6448": {
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6449": {
+			"frame": {
+				"x": 750,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6450": {
+			"frame": {
+				"x": 0,
+				"y": 295,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6451": {
+			"frame": {
+				"x": 750,
+				"y": 295,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6452": {
+			"frame": {
+				"x": 1500,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6453": {
+			"frame": {
+				"x": 0,
+				"y": 590,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6454": {
+			"frame": {
+				"x": 750,
+				"y": 590,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6455": {
+			"frame": {
+				"x": 0,
+				"y": 885,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6456": {
+			"frame": {
+				"x": 750,
+				"y": 885,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6457": {
+			"frame": {
+				"x": 0,
+				"y": 1180,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"IMG_6458": {
+			"frame": {
+				"x": 750,
+				"y": 1180,
+				"w": 295,
+				"h": 750
+			},
+			"rotated": true,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 295,
+				"h": 750
+			},
+			"sourceSize": {
+				"w": 295,
+				"h": 750
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		}
+	},
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"image": "door.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 1795,
+			"h": 1475
+		},
+		"scale": "1"
+	},
+	"animations": {
+		"door": [
+			"IMG_6448",
+			"IMG_6449",
+			"IMG_6450",
+			"IMG_6451",
+			"IMG_6452",
+			"IMG_6453",
+			"IMG_6454",
+			"IMG_6455",
+			"IMG_6456",
+			"IMG_6457",
+			"IMG_6458"
+		]
+	}
+}

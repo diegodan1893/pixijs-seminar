@@ -4,6 +4,10 @@ import { TextSlide } from "./TextSlide"
 import { GettingStarted } from "./GettingStarted"
 import { Architecture } from "./Architecture"
 import { Tree } from "./Tree"
+import { SpriteExample } from "./SpriteExample"
+import { SpritesheetExample } from "./SpritesheetExample"
+import { GraphicsExample } from "./GraphicsExample"
+import { MasksExample } from "./MasksExample"
 
 export const getSlides = (app: App) => {
 	return [
@@ -32,5 +36,16 @@ export const getSlides = (app: App) => {
 		new GettingStarted(app),
 		new Architecture(app),
 		new Tree(app),
+		new SpriteExample(app),
+		new SpritesheetExample(app),
+		new GraphicsExample(app),
+		new TextSlide(app, [
+			"Texto",
+			"Lo que estáis viendo ahora mismo",
+			"Puede usar fuentes normales o «bitmap fonts»",
+			"Se pueden añadir bordes, sombras, etc.",
+			"En el caso de las fuentes normales, usar FontFaceObserver",
+		]),
+		new MasksExample(app),
 	]
 }
