@@ -3,6 +3,7 @@ import { Title } from "./Title"
 import { TextSlide } from "./TextSlide"
 import { GettingStarted } from "./GettingStarted"
 import { Architecture } from "./Architecture"
+import { Tree } from "./Tree"
 
 export const getSlides = (app: App) => {
 	return [
@@ -30,5 +31,6 @@ export const getSlides = (app: App) => {
 		]),
 		new GettingStarted(app),
 		new Architecture(app),
+		new Tree(app),
 	]
 }
